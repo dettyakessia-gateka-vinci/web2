@@ -16,7 +16,7 @@ const films : Film []=[
         title:"les rois",
         director:"Caleb",
         duration:75,
-    budget:3,
+        budget:3,
         description:"la reconciliation entre deux pays",
        
       }
@@ -26,5 +26,6 @@ const films : Film []=[
 router.get("/", (_req, res) => {
     return res.json(films);
 });
+
 
 export default router;

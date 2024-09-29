@@ -30,6 +30,13 @@ router.get("/", (req, res) => {
     return res.json(films);
   }
   const minDuration = Number(req.query["minimum-duration"]);
+
+
+  if (isNaN(minDuration)) {
+    console.log("minduration is not a number");
+    return res.sendStatus(400);
+  }
+  console.log("minduration is a number");
   const filteredFilms = films.filter((film) => {
     return film.duration >= minDuration;
   });
@@ -41,12 +48,16 @@ router.get("/", (req, res) => {
 
 router.get("/:id", (req, res) => {
   const id = Number(req.params.id);
-  const film = films.find((film) => film.id === id);
-  if (!film) {
-    return res.sendStatus(400);
+  if (isNaN(id)) {
+    console.log("id is not a  number");
+    res.sendStatus(400);
   }
-  return res.json(film);
-});
+    const film = films.find((film) => film.id === id);
+    if (!film) {
+      return res.sendStatus(400);
+    }
+    return res.json(film);
+  });
 
 
 router.post("/", (req, res) => {
@@ -75,6 +86,11 @@ router.post("/", (req, res) => {
     director,
     duration
   };
+  
+  if(films.find((film)=> film.title === title) && films.find((film) =>film.director === director)){
+    return res.sendStatus(409);
+
+  }  
   films.push(newFilm);
   return res.json(newFilm);
 });

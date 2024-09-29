@@ -19,4 +19,18 @@ Content-Type: application/json
 }
 
 
+### create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
 
+{
+    "title":"The Stranger",
+    "director":"John ",
+    "duration":120
+}
+
+### Read a single drink with an id that is'nt a number
+GET {{baseUrl}}/films/f
+
+### Read all drinks cheaper than a paramater that's not a number
+GET {{baseUrl}}/films/?minimum-duration=2f

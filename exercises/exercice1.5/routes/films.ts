@@ -40,6 +40,10 @@ router.get("/", (req, res) => {
   const filteredFilms = films.filter((film) => {
     return film.duration >= minDuration;
   });
+
+  if(filteredFilms.length === 0){
+    return res.sendStatus(404);
+  }
   return res.json(filteredFilms);
 });
 

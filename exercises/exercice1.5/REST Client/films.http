@@ -6,7 +6,7 @@ GET {{baseUrl}}/films
 GET {{baseUrl}}/films/2
 
 ### Read all drinks cheaper or equal to 3 €
-GET {{baseUrl}}/films/?minimum-duration=34
+GET {{baseUrl}}/films/?minimum-duration=200
 
 ### create a film
 POST {{baseUrl}}/films

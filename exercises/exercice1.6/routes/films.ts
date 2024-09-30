@@ -173,6 +173,9 @@ router.put("/:id", (req, res) => {
       director,
       duration
     }
+    if(films.find((film) =>film.title === title)&&films.find((film)=>film.director===director)){
+      return res.sendStatus(409);
+    }
     films.push(newfilm);
     return res.json(newfilm);
   }

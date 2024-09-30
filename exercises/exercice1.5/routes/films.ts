@@ -43,6 +43,7 @@ router.get("/", (req, res) => {
 
   if(filteredFilms.length === 0){
     return res.sendStatus(404);
+    
   }
   return res.json(filteredFilms);
 });

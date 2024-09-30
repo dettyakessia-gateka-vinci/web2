@@ -26,13 +26,32 @@ const films: Film[] = [
 ];
 
 router.get("/", (req, res) => {
-  if (!req.query["minimum-duration"]) {
-    return res.json(films);
-  }
-  const minDuration = Number(req.query["minimum-duration"]);
+
+
+  const minDuration = req.query["minimum-duration"] ? Number(req.query["minimum-duration"]) : 0;
+
+  const startChars = req.query["start-chars"] ? String(req.query["start-chars"]) : "";
+
+
+  
   const filteredFilms = films.filter((film) => {
     return film.duration >= minDuration;
+  }).filter((film) => {
+    return film.title.startsWith(startChars);
   });
+
+  const sort = req.query["sort"] ? String(req.query["sort"]) : "";
+
+  if (sort === "title") {
+    filteredFilms.sort((a, b) => a.title.localeCompare(b.title));
+  } else if (sort === "duration") {
+    filteredFilms.sort((a, b) => a.duration - b.duration);
+  } else if (sort === "") {
+    // do nothing
+  } else {
+    return res.sendStatus(400);
+  }
+
   return res.json(filteredFilms);
 });
 

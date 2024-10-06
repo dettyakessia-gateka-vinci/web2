@@ -39,7 +39,7 @@ GET {{baseUrl}}/films/?minimum-duration=2f
 DELETE {{baseUrl}}/films/2
 
 ### pacth a film with id specific id
-PATCH {{baseUrl}}/films/2
+PATCH {{baseUrl}}/films/3
 Content-Type: application/json
 
 {

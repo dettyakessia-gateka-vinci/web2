@@ -1,0 +1,34 @@
+### Read all texts with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/texts
+
+### Read one text with an id specific id
+
+GET {{baseUrl}}/texts/550e8400-e29b-41d4-a716-446655440000
+### create a text
+POST {{baseUrl}}/texts
+Content-Type: application/json
+
+{
+   "content":"The Stranger",
+   "level":"easy"
+}
+
+
+### delete one text with an id specific id
+@baseUrl = http://localhost:3000
+DELETE {{baseUrl}}/texts/d812cc10-3477-4ae3-8c3d-f1ec5dc4b8d9
+
+
+
+
+
+### update one text with an id specific id
+@baseUrl = http://localhost:3000
+PUT {{baseUrl}}/texts/550e8400-e29b-41d4-a716-446655440000
+Content-Type: application/json
+
+{
+   "content":"The Human Comedy",
+   "level":"medium"
+}

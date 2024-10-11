@@ -1,0 +1,57 @@
+### Read all films with File variable
+@baseUrl = http://localhost:3000
+GET {{baseUrl}}/films
+
+### Read a single drink
+GET {{baseUrl}}/films/2
+
+### Read all drinks cheaper or equal to 3 €
+GET {{baseUrl}}/films/?minimum-duration=200
+
+### create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"The Stranger",
+    "director":"John Bryan",
+    "duration":120
+}
+
+
+### create a film
+POST {{baseUrl}}/films
+Content-Type: application/json
+
+{
+    "title":"The Stranger",
+    "director":"John ",
+    "duration":120
+}
+
+### Read a single film with an id that is'nt a number
+GET {{baseUrl}}/films/f
+
+### Read all films cheaper than a paramater that's not a number
+GET {{baseUrl}}/films/?minimum-duration=2f
+
+### Delete a film with id specific id
+DELETE {{baseUrl}}/films/2
+
+### pacth a film with id specific id
+PATCH {{baseUrl}}/films/3
+Content-Type: application/json
+
+{
+    "title":"The Captain"
+   
+}
+### put
+PUT {{baseUrl}}/films/4
+Content-Type: application/json
+
+{
+    "title":"Les Monstres",
+    "director":"Bryan",
+    "duration":65
+}

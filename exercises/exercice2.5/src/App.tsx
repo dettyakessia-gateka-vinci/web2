@@ -17,7 +17,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
 
-      <ClickCounter title='Counter' />
+      <ClickCounter title='Counter' message = "You are a master in the art of clicking .!" messageMouseOncounter='Please click on me now!' />
       <p>
         Click on the Vite and React logos to learn more
       </p>

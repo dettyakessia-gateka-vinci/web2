@@ -2,19 +2,24 @@ import { useState } from 'react'
 
 interface HeaderProps {
   title: string;
-  message?: string
+  message: string;
+  messageMouseOncounter: string
 }
 
-const ClickCounter = ({ title, message = "You are a master in the art of clicking .!" }: HeaderProps) => {
+const ClickCounter = ({ title, message, messageMouseOncounter }: HeaderProps) => {
   const [count, setCount] = useState(0);
+
   const ClickCounter = () => {
     setCount(count + 1);
   }
-  
+
+  const [showMessage, setShowMesage] = useState(false);
+
   return (
     <div className="card">
       <h1>{title}</h1>
-      <button onClick={ClickCounter}>
+      <p>{showMessage ? messageMouseOncounter : " "}</p>
+      <button onClick={ClickCounter} onMouseEnter={() => setShowMesage(true)} onMouseLeave={() => setShowMesage(false)}>
         count is {count}
       </button>
       {count >= 10 ? <p>{message}</p> : null}

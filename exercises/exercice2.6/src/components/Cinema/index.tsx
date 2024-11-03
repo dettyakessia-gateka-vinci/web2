@@ -5,11 +5,11 @@ interface CinemaProps{
     movies:Movie[],
 }
 
-const Cinema =(props:CinemaProps) =>{
+const Cinema =({title,movies}:CinemaProps) =>{
    return(
     <div>
-        <h2>{props.title}</h2>
-        {props.movies.map((movie) => <MovieItem movie={movie} />)}
+        <h2>{title}</h2>
+        {movies.map((movie) => <MovieItem movie={movie} />)}
         
     </div>
    )

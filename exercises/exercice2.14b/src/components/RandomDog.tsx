@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import Dog from "../type";
 
-interface RandomDogProps {
-    refresh: boolean;
-}
 
-const RandomDog = ({ refresh }: RandomDogProps) => {  
+
+const RandomDog = () => {  
     const[dog, setDog] = useState<Dog | undefined>(undefined);
-
+    
     useEffect(() => {
       fetchDog();
-    }, [refresh]);
+      setInterval(fetchDog, 5000);
+    }, []);
 
     const fetchDog=async  () => {
       try{

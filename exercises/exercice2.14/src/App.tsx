@@ -5,9 +5,8 @@ import JokeDetails from './components/JokeDetails';
 
 function App() {
   const [joke, setJoke] = useState<Joke | undefined>(undefined);
-  const [refresh, setRefresh] = useState(false);
-  useEffect(() => {
-    const interval = setInterval(() => {setRefresh(!refresh)}, 10000);
+
+  const fetchJoke=() => {
     fetch('https://v2.jokeapi.dev/joke/Any?type=single')
       .then((response) => {
         if(!response.ok) {
@@ -17,7 +16,12 @@ function App() {
       })
       .then((joke) => setJoke(joke));
     return () => clearInterval(interval);
-  }, [refresh]);
+  };
+  
+  useEffect(() => {
+    fetchJoke();
+    setInterval(fetchJoke, 10000);
+  }, []);
   
 
   return (

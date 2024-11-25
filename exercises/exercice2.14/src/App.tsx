@@ -15,7 +15,6 @@ function App() {
         return response.json();
       })
       .then((joke) => setJoke(joke));
-    return () => clearInterval(interval);
   };
   
   useEffect(() => {

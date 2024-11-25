@@ -5,7 +5,6 @@ import Dog from "../type";
 
 const RandomDog = () => {  
     const[dog, setDog] = useState<Dog | undefined>(undefined);
-    
     useEffect(() => {
       fetchDog();
       setInterval(fetchDog, 5000);
@@ -28,7 +27,7 @@ const RandomDog = () => {
 
     return (    
         <div>      
-            <img src={dog?.message} alt="A Random Dog" />    
+            <  img src={dog?.message} alt="A Random Dog"  />    
         </div>
     );
 };
